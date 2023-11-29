@@ -1,0 +1,21 @@
+{
+    "name": "SAP",
+    "description": "Test Initiation Interface",
+    "version": "1.0.0",
+    "build": {
+      "id": 0,
+      "date": "2023-11-24 10:28:27",
+      "host": "172.17.0.2",
+      "user": "SIM"
+    },
+    "copyrightYear": 2023,
+    "organization": {
+      "name": "Rakuten Symphony",
+      "address": "Bengaluru"
+    },
+    "website": "https://symphony.rakuten.com/",
+    "page": {
+      "base": "sapti",
+      "landingPage": "assessment"
+    }
+  }

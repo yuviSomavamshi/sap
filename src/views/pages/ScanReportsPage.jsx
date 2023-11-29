@@ -1,6 +1,6 @@
 import React from "react";
 import { PageHeader, Page, PageBody, PageTitle } from "./common/PageLayoutComponents";
-import dashboards from "../../assets/json/dashboards.json";
+import scans from "../../assets/json/scans.json";
 
 function ScanReportsPage() {
   return (
@@ -10,8 +10,8 @@ function ScanReportsPage() {
       </PageHeader>
       <PageBody>
         <div className="grid grid-cols-2 gap-5 w-full p-5">
-          {dashboards.map((dashboard) => (
-            <Card {...dashboard} />
+          {scans.map((scanReport) => (
+            <Card {...scanReport} />
           ))}
         </div>
       </PageBody>

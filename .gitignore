@@ -25,5 +25,4 @@ yarn-error.log*
 
 src/models/*-proto.ts
 src/assets/css/index.css
-src/assets/json/*.json
 todo

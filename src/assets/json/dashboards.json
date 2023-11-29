@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Image Scanning",
+    "description": "Image Scanning Dashboard",
+    "link": "http://[240b:c0e3:4101:53eb:2001::33]:32000/d/e654a542-e164-413b-83b5-2bd83a164fca/image-scanning?orgId=1"
+  },
+  {
+    "title": "CIS Host Scanning",
+    "description": "CIS Host Scanning Dashboard",
+    "link": "http://[240b:c0e3:4101:53eb:2001::33]:32000/d/e654a542-e164-413b-83b5-2bd83a164fcx/cis_host_scanning?orgId=1"
+  },
+  {
+    "title": "Secrets Scanning",
+    "description": "File System Secrets Scanning Dashboard",
+    "link": "http://[240b:c0e3:4101:53eb:2001::33]:32000/d/e654a542-e164-413b-83b5-2bd83a164fcb/file-system-secret-scanning?orgId=1"
+  },
+  {
+    "title": "K8S CIS Benchmark",
+    "description": "Kubernetes CIS Benchmark Dashboard",
+    "link": "http://[240b:c0e3:4101:53eb:2001::33]:32000/d/e83a7312-233a-4dae-8a55-c94635755153/kubernetes-cis-benchmark?orgId=1"
+  }
+]

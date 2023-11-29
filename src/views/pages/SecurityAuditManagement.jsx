@@ -4,6 +4,8 @@ import TailwindRenderer from "../tailwindrender";
 import IconButton from "../utilities/IconButton";
 import axios from "axios";
 import qs from "qs";
+import { useDispatch } from "react-redux";
+import { showMessage } from "../../redux/actions/MessageAction";
 
 const schema = {
   type: "object",
@@ -494,9 +496,14 @@ const uischema = {
 };
 
 function SecurityAuditManagement() {
+  const dispatch = useDispatch();
   const [payload, setPayload] = useState({ assementType: 1 });
 
   const onSave = () => {
+    dispatch(showMessage("success", "Request Processing"));
+    setTimeout(() => {
+      dispatch(showMessage("success", "Request Processed"));
+    }, 10000);
     const jobParametersObject = {};
     // console.log(payload);
     if (payload["image_registry"]) {
