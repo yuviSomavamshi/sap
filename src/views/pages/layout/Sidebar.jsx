@@ -63,7 +63,7 @@ function SidebarDividerItem({ title, isSmallScreen }) {
         e.stopPropagation();
       }}
     >
-      <p className={`${isSmallScreen ? "text-[7px]" : "text-[10px]"} font-normal tracking-wide`}>{title}</p>
+      <p className={`${isSmallScreen ? "text-[7px]" : "text-sm"} font-normal tracking-wide`}>{title}</p>
     </div>
   );
 }

@@ -62,11 +62,11 @@ function Help({ product, ...props }) {
         leaveTo="transform opacity-0 scale-95"
       >
         <div ref={dropdown} onFocus={() => setDropdownOpen(true)} onBlur={() => setDropdownOpen(false)}>
-          <div className="text-[10px] font-semibold text-color-0400 uppercase pt-1.5 pb-2 px-4">Need help?</div>
+          <div className="text-sm font-semibold text-color-0400 uppercase pt-1.5 pb-2 px-4">Need help?</div>
           <ul>
             <li>
               <div
-                className="font-medium text-xs text-color-0500 hover:text-color-0700 flex items-center py-1 px-3 cursor-pointer"
+                className="font-medium text-sm text-color-0500 hover:text-color-0700 flex items-center py-1 px-3 cursor-pointer"
                 onClick={() => {
                   setDropdownOpen(!dropdownOpen);
                   openInNewTab(`/${product?.page.base}/docs/introduction`);
@@ -78,7 +78,7 @@ function Help({ product, ...props }) {
             </li>
             {/* <li>
               <Link
-                className="font-medium text-xs text-color-0500 hover:text-color-0700 flex items-center py-1 px-3"
+                className="font-medium text-sm text-color-0500 hover:text-color-0700 flex items-center py-1 px-3"
                 to="#0"
                 onClick={() => setDropdownOpen(!dropdownOpen)}
               >
@@ -90,7 +90,7 @@ function Help({ product, ...props }) {
             </li> */}
             <li>
               <Link
-                className="font-medium text-xs text-color-0500 hover:text-color-0700 flex items-center py-1 px-3"
+                className="font-medium text-sm text-color-0500 hover:text-color-0700 flex items-center py-1 px-3"
                 to="#0"
                 onClick={() => {
                   setDropdownOpen(!dropdownOpen);
@@ -103,7 +103,7 @@ function Help({ product, ...props }) {
             </li>
             <li>
               <Link
-                className="font-medium text-xs text-color-0500 hover:text-color-0700 flex items-center py-1 px-3"
+                className="font-medium text-sm text-color-0500 hover:text-color-0700 flex items-center py-1 px-3"
                 to="#0"
                 onClick={() => {
                   setDropdownOpen(!dropdownOpen);

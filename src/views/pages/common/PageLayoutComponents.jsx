@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import WebContext from "../../context/WebContext";
 
-const BODY_PADDING = 40;
+const BODY_PADDING = 50;
 
 export function PageHeader({ show = true, children }) {
   if (!show) return null;
@@ -12,7 +12,7 @@ export function PageHeader({ show = true, children }) {
   );
 }
 export function PageTitle({ children }) {
-  return <div className="text-color-0700 text-base font-semibold select-none ml-2 grow inline-flex items-center uppercase">{children}</div>;
+  return <div className="text-color-0700 text-lg font-bold select-none ml-2 grow inline-flex items-center uppercase">{children}</div>;
 }
 
 export function PageActions({ children }) {

@@ -80,7 +80,7 @@ function TableRenderer({
           maxHeight: windowDimension.maxContentHeight - 95
         }}
       >
-        <table className="relative w-full text-[10px] text-slate-600">
+        <table className="relative w-full text-sm text-slate-600">
           <TableHeader
             columns={columns}
             sortDirection={sortDirection}
@@ -274,7 +274,7 @@ const ChipComponent = ({ value }) => {
   return (
     <a
       href="#"
-      className="bg-blue-100 hover:bg-blue-200 text-blue-800 text-[10px] font-medium mr-2 px-2.5 py-0.5 rounded-full border border-blue-400 inline-flex items-center justify-center"
+      className="bg-blue-100 hover:bg-blue-200 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded-full border border-blue-400 inline-flex items-center justify-center"
     >
       {value}%
     </a>
@@ -295,7 +295,7 @@ const LinkComponent = ({ value }) => {
 const JsonComponent = ({ value }) => {
   return (
     <textarea
-      className="select-all m-1 rounded-md w-full text-[10px] text-slate-600 border border-gray-300 bg-slate-100"
+      className="select-all m-1 rounded-md w-full text-sm text-slate-600 border border-gray-300 bg-slate-100"
       disabled={true}
       value={JSON.stringify(value, null, 2)}
     />
@@ -323,7 +323,7 @@ const AccordionComponent = ({ record, col }) => {
                   {Object.keys(recordData).map((item, index) => (
                     <th
                       key={index}
-                      className="p-1 px-2 border-b-2  border-slate-300 bg-slate-100 text-left text-[10px] font-semibold text-slate-700 tracking-wider select-none"
+                      className="p-1 px-2 border-b-2  border-slate-300 bg-slate-100 text-left text-sm font-semibold text-slate-700 tracking-wider select-none"
                     >
                       {item}
                     </th>
@@ -333,7 +333,7 @@ const AccordionComponent = ({ record, col }) => {
               <tbody>
                 <tr>
                   {Object.values(recordData).map((item, index) => (
-                    <td key={index} className="bg-white border-b text-center border-slate-200 text-[10px] select-none text-slate-700">
+                    <td key={index} className="bg-white border-b text-center border-slate-200 text-sm select-none text-slate-700">
                       {item}
                     </td>
                   ))}

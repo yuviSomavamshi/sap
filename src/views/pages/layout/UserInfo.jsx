@@ -18,9 +18,9 @@ function UserInfo({ showTitle = false }) {
   };
 
   return (
-    <div className="py-1 px-2 m-2 rounded backdrop-blur-sm bg-slate-500/30 text-slate-300 items-center">
-      <div className="flex flex-col select-none">
-        {username && <p className="text-[10px]">{username}</p>}
+    <div className="p-1 m-1 rounded-md backdrop-blur-sm bg-slate-500/30 text-slate-300 items-center">
+      <div className="flex flex-col select-none break-all">
+        {username && <p className="text-sm">{username}</p>}
         {role && <IconLabel label={role} icon="AccountCircle" />}
       </div>
       {email && validateEmail(email) && <IconLabel label={email} icon="Email" />}
@@ -30,7 +30,7 @@ function UserInfo({ showTitle = false }) {
 
 function IconLabel({ icon, label }) {
   return (
-    <p className="text-[10px] flex items-center">
+    <p className="text-sm flex break-all">
       <IconRenderer icon={icon} className="mr-[2px]" style={{ width: "12px" }} />
       {label}
     </p>

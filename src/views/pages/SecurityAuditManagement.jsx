@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { PageHeader, Page, PageBody, PageTitle } from "./common/PageLayoutComponents";
+import TailwindRenderer from "../tailwindrender";
 import IconButton from "../utilities/IconButton";
+import axios from "axios";
+import qs from "qs";
 
 const schema = {
   type: "object",
@@ -162,10 +165,7 @@ const uischema = {
     {
       type: "Control",
       scope: "#/properties/assementType",
-      label: "Security Assement Type",
-      options: {
-        format: "radio"
-      }
+      label: "Security Assement Type"
     },
     {
       type: "CustomGroup",
@@ -203,7 +203,7 @@ const uischema = {
             {
               type: "Control",
               scope: "#/properties/image_tag",
-              label: "Tag",
+              label: "TAG",
               rule: {
                 effect: "SHOW",
                 condition: {
@@ -544,8 +544,6 @@ function SecurityAuditManagement() {
       jobParametersObject["oran_capability"] = payload["oran_capability"];
     }
 
-    var axios = require("axios");
-    var qs = require("qs");
     const jenkinsUrl = "http://[240b:c0e3:4101:53eb:2001::31]:8080/job/SAP_Execution/buildWithParameters?token=sap_scan_tool";
     // notice the url has buildWithParameters instead of build
     const userName = "sapadmin";
@@ -595,9 +593,8 @@ function SecurityAuditManagement() {
       <PageHeader>
         <PageTitle>Security Assessment Platform</PageTitle>
       </PageHeader>
-
       <PageBody>
-
+        <TailwindRenderer id="json-forms" schema={schema} uischema={uischema} data={payload} onChange={(d) => setPayload(d.data)} />
         <div className="flex border-t border-solid border-slate-800 justify-end w-full mt-1.5 pt-2">
           <IconButton id="form-submit-btn" title={"Submit"} icon={"Save"} onClick={onSave} />
         </div>

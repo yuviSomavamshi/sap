@@ -152,7 +152,7 @@ const JsonTable = React.memo((props) => {
   const tableClass = props.className || getSetting("classPrefix");
   return (
     <div className="w-full select-none mb-1">
-      {props.title && <p className="text-[10px] font-medium">{props.title}</p>}
+      {props.title && <p className="text-sm font-medium">{props.title}</p>}
       <table className={`${tableClass} w-full border rounded-md`}>{contents}</table>
     </div>
   );

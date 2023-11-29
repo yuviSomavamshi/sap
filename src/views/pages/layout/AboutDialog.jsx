@@ -37,7 +37,7 @@ function AboutDialog({ showDialog, closeDialog, product, version }) {
         <p className="w-full font-thin text-slate-500">
           &copy; Copyright {copyrightYear} {organization.name}
         </p>
-        <p className="text-slate-400 text-[10px] break-all w-96">{organization.address}</p>
+        <p className="text-slate-400 text-sm break-all w-96">{organization.address}</p>
         <div className="flex w-full justify-end mt-2">
           <CloseButton onClose={closeDialog} />
         </div>

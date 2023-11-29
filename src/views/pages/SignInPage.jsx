@@ -99,26 +99,26 @@ export function SignInPage({ product }) {
             <h2 className="text-3xl text-white font-display font-semibold text-left xl:text-3xl xl:text-bold">Sign In</h2>
           </div>
           <div className="mt-8 w-60 text-white">
-            <label htmlFor="username" className="placeholder-white block mt-2 text-[10px] font-medium">
+            <label htmlFor="username" className="placeholder-white block mt-2 text-sm font-medium">
               Username/e-mail
             </label>
             <input
               id="#/properties/username"
-              className="block h-9 w-full rounded-md mt-2 text-xs font-light bg-color-0900/10 backdrop-blur-sm"
+              className="block h-9 w-full rounded-md mt-2 text-sm font-light bg-color-0900/10 backdrop-blur-sm"
               type="email"
               value={email}
               placeholder="Enter Username/Email"
               name="email"
               onChange={change}
             />
-            <label className="placeholder-white block mt-2 text-[10px] font-medium" htmlFor="password">
+            <label className="placeholder-white block mt-5 text-sm font-medium" htmlFor="password">
               Password
             </label>
             <div className="relative">
               <input
                 id="#/properties/password"
                 ref={pass}
-                className="block h-9 z-10 w-full rounded-md mt-2 text-xs font-light bg-color-0900/10 backdrop-blur-sm"
+                className="block h-9 z-10 w-full rounded-md mt-2 text-sm font-light bg-color-0900/10 backdrop-blur-sm"
                 type="password"
                 placeholder="Enter Password"
                 value={password}
@@ -131,14 +131,14 @@ export function SignInPage({ product }) {
                 </SvgIconRenderer>
               </div>
             </div>
-            <div className="mt-8 flex items-center justify-center">
+            <div className="mt-5 flex items-center justify-center">
               <button
                 id="signin-btn"
                 type="submit"
                 onClick={onSubmit}
                 className={`${
                   loading ? "cursor-not-allowed" : "cursor-pointer"
-                } w-full text-center inline-flex items-center justify-center p-2 text-sm font-semibold font-display leading-6 text-white transition duration-150 ease-in-out rounded bg-gradient-to-b from-color-0500 to-color-0700 hover:from-color-0400 hover:to-color-0700 shadow-lg`}
+                } w-full text-center inline-flex items-center justify-center p-2 text-base font-semibold font-display leading-6 text-white transition duration-150 ease-in-out rounded bg-gradient-to-b from-color-0500 to-color-0700 hover:from-color-0400 hover:to-color-0700 shadow-lg`}
               >
                 {loading && (
                   <svg className="w-5 h-5 mr-3 -ml-1 text-white animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -159,7 +159,7 @@ export function SignInPage({ product }) {
         <div
           id="copy-right"
           build-number={version?.buildNumber}
-          className="absolute bottom-0 cursor-pointer text-[10px] text-slate-400 tracking-tighter mb-2"
+          className="absolute bottom-0 cursor-pointer text-sm text-slate-400 tracking-tighter mb-2"
         >
           &copy;
           {`Copyright ${copyrightYear} ${organization.name} | All rights reserved ${

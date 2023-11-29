@@ -10,7 +10,7 @@ export default function Pagination(props) {
       <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
         <div className="select-none">
           {count > 0 && (
-            <p className="text-xs text-gray-700">
+            <p className="text-sm text-gray-700">
               Showing
               <span className="font-medium px-1">{start}</span>
               to
@@ -54,7 +54,7 @@ function renderItem(item) {
     case "previous":
       return (
         <div
-          className={`inline-flex items-center p-1 px-2 rounded-l-md border border-gray-300 bg-white text-xs font-medium text-gray-500 hover:bg-gray-50 select-none cursor-pointer ${
+          className={`inline-flex items-center p-1 px-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 select-none cursor-pointer ${
             item.disabled && "bg-gray-200 hover:bg-gray-200"
           }`}
           onClick={() => {
@@ -74,7 +74,7 @@ function renderItem(item) {
     case "next":
       return (
         <div
-          className={`inline-flex items-center p-1 px-2 rounded-r-md border border-gray-300 bg-white text-xs font-medium text-gray-500 hover:bg-gray-50 select-none cursor-pointer ${
+          className={`inline-flex items-center p-1 px-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 select-none cursor-pointer ${
             item.disabled && "bg-gray-200 hover:bg-gray-200"
           }`}
           onClick={() => {
@@ -96,7 +96,7 @@ function renderItem(item) {
     case "page":
       return (
         <div
-          className={`flex text-center p-1.5 px-3 border text-xs font-medium select-none cursor-pointer ${
+          className={`flex text-center p-1.5 px-3 border text-sm font-medium select-none cursor-pointer ${
             item.selected ? "bg-cds-ice-0050 border-cds-ice-0500 text-cds-ice-0600" : "border-gray-300 text-gray-500 hover:bg-gray-50"
           }`}
           onClick={item.onClick}
@@ -106,7 +106,7 @@ function renderItem(item) {
       );
     case "end-ellipsis":
       return (
-        <span className="inline-flex items-center p-1.5 px-3 border border-gray-300 bg-white text-xs font-medium text-gray-700 select-none cursor-pointer">
+        <span className="inline-flex items-center p-1.5 px-3 border border-gray-300 bg-white text-sm font-medium text-gray-700 select-none cursor-pointer">
           ...
         </span>
       );
