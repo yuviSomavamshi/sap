@@ -141,8 +141,47 @@ function SecurityAuditManagement() {
             <SelectProductType onSelect={setProduct} type={product} data={type === 0 ? Products : type === 1 ? [] : Clusters} />
           </Card>
           <Card title="Properties" className="bg-yellow-100">
+            <div>
+              <label for="registry" className="block mt-2 mb-1 text-sm font-medium text-gray-900 ">
+                Registry
+              </label>
+              <input
+                type="text"
+                id="registry"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                placeholder="Enter registry name"
+                required={true}
+              />
+            </div>
+            <div>
+              <label for="repository" className="block mt-2 mb-1 text-sm font-medium text-gray-900 ">
+                Repository
+              </label>
+              <input
+                type="text"
+                id="repository"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                placeholder="Enter repository name"
+                required={true}
+              />
+            </div>
+            <div>
+              <label for="git_repository" className="block mt-2 mb-1 text-sm font-medium text-gray-900 ">
+                Git Repository
+              </label>
+              <input
+                type="text"
+                id="git_repository"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                placeholder="Enter git repository"
+                required={true}
+              />
+            </div>
           </Card>
           <Card title="Progress" className="bg-pink-100" last={true}>
+            <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+              <div className="bg-blue-600 h-2.5 rounded-full" style={{ width: "45%" }} />
+            </div>
           </Card>
         </div>
         <div className="inline-flex justify-end w-full mt-2">
@@ -159,9 +198,7 @@ function Card({ title, className, children, last = false }) {
   return (
     <div className={`flex flex-col items-center py-2 space-y-2 ${last ? "" : "border-r border-slate-300"} ${className}`}>
       <label className="text-cds-ice-0600 text-xl font-medium">{title}</label>
-      <div className="w-full border-t border-solid border-slate-300 pt-2 overflow-y-auto custom-scrollbar max-h-[480px]">
-        {children}
-      </div>
+      <div className="w-full border-t border-solid border-slate-300 p-2 overflow-y-auto custom-scrollbar max-h-[480px]">{children}</div>
     </div>
   );
 }
@@ -204,8 +241,9 @@ function ProductButton({ id, onClick, icon, children, selected }) {
   return (
     <button
       id={`product-type-${id}`}
-      className={`w-56 bg-gradient-to-b from-green-600 to-green-800 hover:bg-green-700 p-5 rounded text-slate-100 hover:text-white ${selected ? "border-4 border-color-0300" : ""
-        } shadow-md hover:shadow-2xl inline-flex items-center text-left text-lg font-medium select-none space-x-2`}
+      className={`w-56 bg-gradient-to-b from-green-600 to-green-800 hover:bg-green-700 p-5 rounded text-slate-100 hover:text-white ${
+        selected ? "border-4 border-color-0300" : ""
+      } shadow-md hover:shadow-2xl inline-flex items-center text-left text-lg font-medium select-none space-x-2`}
       onClick={onClick}
     >
       <IconRenderer icon={icon} style={{ fontSize: 30 }} />
@@ -230,8 +268,9 @@ function AuditButton({ id, onClick, icon, children, selected }) {
   return (
     <button
       id={`audit-type-${id}`}
-      className={`w-52 bg-gradient-to-b from-cyan-600 to-cyan-900 hover:bg-cyan-700 p-5 rounded text-slate-100 hover:text-white ${selected ? "border-4 border-color-0300" : ""
-        } shadow-md hover:shadow-2xl inline-flex items-center text-left text-lg font-medium select-none space-x-2`}
+      className={`w-52 bg-gradient-to-b from-cyan-600 to-cyan-900 hover:bg-cyan-700 p-5 rounded text-slate-100 hover:text-white ${
+        selected ? "border-4 border-color-0300" : ""
+      } shadow-md hover:shadow-2xl inline-flex items-center text-left text-lg font-medium select-none space-x-2`}
       onClick={onClick}
     >
       <IconRenderer icon={icon} style={{ fontSize: 30 }} />
