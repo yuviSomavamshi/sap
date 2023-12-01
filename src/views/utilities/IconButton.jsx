@@ -26,9 +26,9 @@ export default function IconButton({
     <button
       id={id}
       disabled={disabled}
-      className={`${ariaLabel === undefined ? (disabled ? "bg-slate-300 hover:bg-slate-200" : bg) : ""} rounded text-white ${
-        title !== undefined ? "px-1" : ""
-      } mx-2 ${showShadow ? "shadow hover:shadow-xl" : ""} inline-flex items-center justify-center`}
+      className={`${title !== undefined ? "px-1" : ""} ${
+        ariaLabel === undefined ? (disabled ? "bg-slate-300 hover:bg-slate-200" : bg) : ""
+      } rounded text-white mx-2 ${showShadow ? "shadow hover:shadow-xl" : ""} inline-flex items-center justify-center`}
       onClick={onClick}
       onMouseEnter={toggleShowTitle}
       onMouseLeave={toggleShowTitle}
