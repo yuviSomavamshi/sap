@@ -117,13 +117,13 @@ function SecurityAuditManagement() {
       });
   };
 
-  const [type, setType] = useState(0);
-  const [product, setProduct] = useState(0);
+  const [type, setType] = useState(-1);
+  const [product, setProduct] = useState(-1);
   const prevType = usePrevious(type);
 
   useEffect(() => {
     if (type != prevType) {
-      setProduct(0);
+      setProduct(-1);
     }
   }, [type]);
 
@@ -137,55 +137,81 @@ function SecurityAuditManagement() {
           <Card title="Select Audit Type" className="bg-blue-100">
             <SelectAuditType onSelect={setType} type={type} />
           </Card>
-          <Card title={`Select ${type === 0 ? "Product" : type === 1 ? "Scan" : "Cluster"}`} className="bg-green-100">
-            <SelectProductType onSelect={setProduct} type={product} data={type === 0 ? Products : type === 1 ? [] : Clusters} />
-          </Card>
-          <Card title="Properties" className="bg-yellow-100">
-            <div>
-              <label for="registry" className="block mt-2 mb-1 text-sm font-medium text-gray-900 ">
-                Registry
-              </label>
-              <input
-                type="text"
-                id="registry"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                placeholder="Enter registry name"
-                required={true}
-              />
-            </div>
-            <div>
-              <label for="repository" className="block mt-2 mb-1 text-sm font-medium text-gray-900 ">
-                Repository
-              </label>
-              <input
-                type="text"
-                id="repository"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                placeholder="Enter repository name"
-                required={true}
-              />
-            </div>
-            <div>
-              <label for="git_repository" className="block mt-2 mb-1 text-sm font-medium text-gray-900 ">
-                Git Repository
-              </label>
-              <input
-                type="text"
-                id="git_repository"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                placeholder="Enter git repository"
-                required={true}
-              />
-            </div>
-          </Card>
-          <Card title="Progress" className="bg-pink-100" last={true}>
-            <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-              <div className="bg-blue-600 h-2.5 rounded-full" style={{ width: "45%" }} />
-            </div>
-          </Card>
+          {type > -1 && type !== 1 && (
+            <Card title={`Select ${type === 0 ? "Product" : type === 1 ? "Scan" : "Cluster"}`} className="bg-green-100">
+              <SelectProductType onSelect={setProduct} type={product} data={type === 0 ? Apps : type === 1 ? [] : Clusters} />
+            </Card>
+          )}
+          {type > -1 && (
+            <Card title="Properties" className="bg-yellow-100">
+              {type === 0 && (
+                <div>
+                  <label for="repository" className="block mt-2 mb-1 text-sm font-medium text-gray-900 ">
+                    Repository
+                  </label>
+                  <input
+                    type="text"
+                    id="repository"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    placeholder="Enter repository name"
+                    required={true}
+                  />
+                </div>
+              )}
+              <div>
+                <label for="ip" className="block mt-2 mb-1 text-sm font-medium text-gray-900 ">
+                  IP Address
+                </label>
+                <input
+                  type="text"
+                  id="ip"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  placeholder="Enter IP Address"
+                  required={true}
+                />
+              </div>
+              <div>
+                <label for="username" className="block mt-2 mb-1 text-sm font-medium text-gray-900 ">
+                  Username
+                </label>
+                <div class="flex">
+                  <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border rounded-e-0 border-gray-300 rounded-s-md">
+                    <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 13a8.949 8.949 0 0 1-4.951-1.488A3.987 3.987 0 0 1 9 13h2a3.987 3.987 0 0 1 3.951 3.512A8.949 8.949 0 0 1 10 18Z" />
+                    </svg>
+                  </span>
+                  <input
+                    type="text"
+                    id="username"
+                    class="rounded-none rounded-e-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5"
+                    placeholder="Enter Username"
+                  />
+                </div>
+              </div>
+              <div>
+                <label for="password" className="block mt-2 mb-1 text-sm font-medium text-gray-900 ">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  id="password"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  placeholder="Enter Password"
+                  required={true}
+                />
+              </div>
+            </Card>
+          )}
+          {type > -1 && (
+            <Card title="Progress" className="bg-pink-100" last={true}>
+              <div className="w-full bg-gray-200 rounded-full h-2.5">
+                <div className="bg-blue-600 h-2.5 rounded-full" style={{ width: "45%" }} />
+              </div>
+            </Card>
+          )}
         </div>
         <div className="inline-flex justify-end w-full mt-2">
-          <IconButton id="form-submit-btn" title={"Submit"} icon={"Save"} onClick={onSave} iconSize="25" />
+          <IconButton id="form-submit-btn" title={"Submit"} icon={"Save"} onClick={onSave} iconSize="25" disabled={type === -1} />
         </div>
       </PageBody>
     </Page>
@@ -204,17 +230,18 @@ function Card({ title, className, children, last = false }) {
 }
 
 const AuditTypes = [
-  { title: "Product", icon: "Inventory2TwoTone" },
-  { title: "Vulnerability Scan", icon: "FindInPageTwoTone" },
-  { title: "Cluster", icon: "AccountTreeTwoTone" }
+  { title: "Application", icon: "Inventory2TwoTone" },
+  { title: "Cloud Infra", icon: "AccountTreeTwoTone" },
+  { title: "Individual Scan", icon: "FindInPageTwoTone" }
 ];
 
-const Products = [
-  { title: "Site Manager", icon: "WebAssetTwoTone" },
-  { title: "Knowledge Hub", icon: "HubTwoTone" },
-  { title: "ORAN CU-CP", icon: "CellTowerTwoTone" },
-  { title: "ORAN CU-UP", icon: "CellTowerTwoTone" },
-  { title: "ORAN DU", icon: "CellTowerTwoTone" }
+const Apps = [
+  { title: "CU-CP", icon: "CellTowerTwoTone" },
+  { title: "CU-UP", icon: "CellTowerTwoTone" },
+  { title: "DU", icon: "CellTowerTwoTone" },
+  { title: "OSS/SMO", icon: "WebAssetTwoTone" },
+  { title: "x-Apps/r-Apps", icon: "HubTwoTone" },
+  { title: "RIC-Platform", icon: "HubTwoTone" }
 ];
 
 const Clusters = [
@@ -229,26 +256,11 @@ function SelectProductType({ type, data, onSelect }) {
   return (
     <div className="flex flex-col w-full items-center justify-center space-y-5">
       {data.map(({ title, icon }, i) => (
-        <ProductButton id={i} onClick={() => onSelect(i)} icon={icon} key={i} iconSize="25" selected={i === type}>
+        <AuditButton id={`product-type-${i}`} onClick={() => onSelect(i)} icon={icon} key={i} iconSize="25" selected={i === type}>
           {title}
-        </ProductButton>
+        </AuditButton>
       ))}
     </div>
-  );
-}
-
-function ProductButton({ id, onClick, icon, children, selected }) {
-  return (
-    <button
-      id={`product-type-${id}`}
-      className={`w-56 bg-gradient-to-b from-green-600 to-green-800 hover:bg-green-700 p-5 rounded text-slate-100 hover:text-white ${
-        selected ? "border-4 border-color-0300" : ""
-      } shadow-md hover:shadow-2xl inline-flex items-center text-left text-lg font-medium select-none space-x-2`}
-      onClick={onClick}
-    >
-      <IconRenderer icon={icon} style={{ fontSize: 30 }} />
-      <span>{children}</span>
-    </button>
   );
 }
 
@@ -256,7 +268,7 @@ function SelectAuditType({ type, onSelect }) {
   return (
     <div className="flex flex-col w-full items-center justify-center space-y-5 px-10">
       {AuditTypes.map(({ title, icon }, i) => (
-        <AuditButton id={i} onClick={() => onSelect(i)} icon={icon} key={i} iconSize="25" selected={i === type}>
+        <AuditButton id={`audit-type-${i}`} onClick={() => onSelect(i)} icon={icon} key={i} iconSize="25" selected={i === type}>
           {title}
         </AuditButton>
       ))}
@@ -267,8 +279,8 @@ function SelectAuditType({ type, onSelect }) {
 function AuditButton({ id, onClick, icon, children, selected }) {
   return (
     <button
-      id={`audit-type-${id}`}
-      className={`w-52 bg-gradient-to-b from-cyan-600 to-cyan-900 hover:bg-cyan-700 p-5 rounded text-slate-100 hover:text-white ${
+      id={id}
+      className={`w-56 p-5 rounded-md text-slate-800 hover:text-slate-600 bg-slate-100 border ${
         selected ? "border-4 border-color-0300" : ""
       } shadow-md hover:shadow-2xl inline-flex items-center text-left text-lg font-medium select-none space-x-2`}
       onClick={onClick}
